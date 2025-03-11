@@ -3,7 +3,7 @@ import background from "./fondo-back.jpg";
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
-import "./components/estilos/estilos.css"
+import "./components/estilos/estilos.css";
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import ItemListContainer from "./components/ItemListContainer";
@@ -12,11 +12,13 @@ import Footer from "./components/Footer";
 import Carrito from "./components/Carrito";
 import CartProvider from './components/CartContext';
 
-function App ({greeting}) {
+function App() {
 
-    const myStyle={ 
-        backgroundImage: `url(${background})`, 
-        height:'100vh',
+    const greeting = "Todo para tu espacio Zen";  
+
+    const myStyle = {
+        backgroundImage: `url(${background})`,
+        height: '100vh',
         backgroundSize: 'cover',
         backgroundRepeat: 'repeat-y',
         overflowX: 'hidden'
@@ -26,22 +28,21 @@ function App ({greeting}) {
         <CartProvider>
             <BrowserRouter>
                 <div style={myStyle}>
-                <NavBar/>
-                    <h2 className='text-center mt-5'>{greeting="Todo para tu espacio Zen"}</h2>
-                
-                <Routes>
-                <Route path="/" element={<Main/>} />
-                <Route path='/categoria/:id' element={<ItemListContainer />} />
-                <Route path='/item/:id' element={<ItemDetailContainer />} />
-                <Route path='/Carrito' element={<Carrito/>} />
-                
-                </Routes>
-                <Footer/>
+                    <NavBar />
+                    <h2 className='text-center mt-5'>{greeting}</h2>
+
+                    <Routes>
+                        <Route path="/" element={<Main />} />
+                        <Route path="/categoria/:id" element={<ItemListContainer />} />
+                        <Route path="/item/:id" element={<ItemDetailContainer />} />
+                        <Route path="/Carrito" element={<Carrito />} />
+                    </Routes>
+
+                    <Footer />
                 </div>
             </BrowserRouter>
         </CartProvider>
     );
-
 }
 
-export default App
+export default App;
